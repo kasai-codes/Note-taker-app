@@ -98,25 +98,4 @@ app.listen(PORT, () =>
 
 
 
-    // const id = rq.params.id;
-    // var currentNotes = storedNotes.filter(item => item.id !== id);
-    // storedNotes = currentNotes;
-    // if (id) {
-    //     fs.writeFile(`./db/db.json`, JSON.stringify(currentNotes, null, 2), (err) =>
-    //     err
-    //       ? console.error(err)
-    //       : console.log(
-    //           `${id} has been deleted from JSON file`
-    //         )
-    //   );
-  
-    //   const response = {
-    //     status: 'success',
-    //     id: id
-    //   };
-  
-    //   console.log(response);
-    //   res.status(201).json(response);
-    // } else {
-    //     res.status(500).json('Error in deleting note');
-    // }
+    

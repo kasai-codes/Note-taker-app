@@ -6,7 +6,7 @@
 
 ## Description
 
-An express.js application in which the user can add and save new notes as well as delete current notes.
+An express.js application in which the user can add and save new notes as well as delete previously saved notes.
 
 ## Table of contents
 * [Description](#description)
@@ -30,11 +30,11 @@ npm start
 
 ## Preview
 
-![gif](assets/preview.gif)
+![gif](DEMO.gif)
 
 
 ## Deployed
 
-[Team-profile-generator](https://github.com/kasaipreston/team-profile)
+[Note Taker App](https://github.com/kasai-codes/Note-taker-app)
 
 
