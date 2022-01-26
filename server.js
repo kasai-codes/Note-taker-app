@@ -69,31 +69,54 @@ app.post('/api/notes', (req, res) => {
 
 app.delete('/api/notes/:id', (req, res) => {
      
-    const id = rq.params.id;
-    var currentNotes = storedNotes.filter(item => item.id !== id);
-    storedNotes = currentNotes;
-    if (id) {
-        fs.writeFile(`./db/db.json`, JSON.stringify(currentNotes, null, 2), (err) =>
-        err
-          ? console.error(err)
-          : console.log(
-              `${id} has been deleted from JSON file`
-            )
-      );
+    const noteIndex = storedNotes.findIndex(({id}) => id === req.params.id);
+
+    if (noteIndex >= 0) {
+        storedNotes.splice(noteIndex, 1)
+
   
-      const response = {
-        status: 'success',
-        id: id
-      };
-  
-      console.log(response);
-      res.status(201).json(response);
-    } else {
-        res.status(500).json('Error in deleting note');
+
+          fs.writeFile(
+            './db/db.json', JSON.stringify(storedNotes, null, 4), // notes or allNotes
+            (writeErr) =>
+              writeErr
+                ? console.error(writeErr)
+                : console.info('Successfully deleted note with ID:' + req.params.id)
+          );
+          res.sendStatus(204)
     }
+
 })
+app.get('*', (req, res) =>
+  res.sendFile(path.join(__dirname, '/public/index.html'))
+);
 
 
 
 app.listen(PORT, () =>
     console.log(`App listening at http://localhost:${PORT} 🚀`))
+
+
+
+    // const id = rq.params.id;
+    // var currentNotes = storedNotes.filter(item => item.id !== id);
+    // storedNotes = currentNotes;
+    // if (id) {
+    //     fs.writeFile(`./db/db.json`, JSON.stringify(currentNotes, null, 2), (err) =>
+    //     err
+    //       ? console.error(err)
+    //       : console.log(
+    //           `${id} has been deleted from JSON file`
+    //         )
+    //   );
+  
+    //   const response = {
+    //     status: 'success',
+    //     id: id
+    //   };
+  
+    //   console.log(response);
+    //   res.status(201).json(response);
+    // } else {
+    //     res.status(500).json('Error in deleting note');
+    // }
