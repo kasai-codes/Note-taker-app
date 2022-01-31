@@ -35,6 +35,6 @@ npm start
 
 ## Deployed
 
-[Note Taker App](https://github.com/kasai-codes/Note-taker-app)
+[Note Taker App]( https://kp-note-taker101.herokuapp.com/)
 
 
