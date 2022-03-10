@@ -1,4 +1,4 @@
-# Team profile generator
+# Note Taker
 
 
 ## License
